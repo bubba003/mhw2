@@ -1,3 +1,5 @@
+const scomparso=document.querySelector('#barra-altro em');
+const scomparsoMobile= document.querySelector('#solo-mobile em');
 const boxes= document.querySelectorAll('#sezioni div'); //funge da variabile globale
 
 /*l'idea successiva è quella di creare una funzione (changeSection) in cui vado a inserire diverse liste che contengano tutte le informazioni che mi servono per
@@ -219,8 +221,16 @@ function changeColor(event){
 	// non metto "scelta.removeEventListener('click', changeColor);" perché voglio che possa ripetersi più volte
 }
 
+function disappear(event){
+	const scelta= event.currentTarget;
+	
+	scelta.classList.add('hidden');
+}
+
 console.log(boxes);
 for(const box of boxes){
 	box.addEventListener('click', changeColor);
 	box.addEventListener('click', changeSection);
 }
+scomparso.addEventListener('click', disappear);
+scomparsoMobile.addEventListener('click', disappear);
